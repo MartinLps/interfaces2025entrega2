@@ -1,19 +1,25 @@
 // Loading Screen Script
 document.addEventListener('DOMContentLoaded', function() {
-    // Pantalla de carga de 5 segundos
     const pantallaCarga = document.getElementById('pantalla-carga');
     const progresoCarga = document.getElementById('relleno-progreso');
     const porcentajeProgreso = document.getElementById('porcentaje-progreso');
+    
+    // Verificar que los elementos existan
+    if (!pantallaCarga || !progresoCarga || !porcentajeProgreso) {
+        console.error('Elementos de carga no encontrados');
+        return;
+    }
+
     const mainContent = document.querySelector('.main-content');
     const header = document.querySelector('.header');
     const footer = document.querySelector('.footer');
     const sidebar = document.querySelector('.nav-bar');
 
     // Ocultar contenido principal inicialmente
-    mainContent.style.display = 'none';
-    header.style.display = 'none';
-    footer.style.display = 'none';
-    sidebar.style.display = 'none';
+    if (mainContent) mainContent.style.display = 'none';
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+    if (sidebar) sidebar.style.display = 'none';
     
     let progresion = 0;
     const duracion = 5000; // 5 segundos
